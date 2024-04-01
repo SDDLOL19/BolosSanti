@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class MenuSceneController : MonoBehaviour
 {
     //Para cargar el nivel de la bolera
-    public void LoadGame()
+    public void StartGame()
     {
+        GameManager.Instance.ResetCantidadBolos();
         SceneManager.LoadScene(1);
     }
 

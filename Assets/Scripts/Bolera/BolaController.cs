@@ -7,7 +7,7 @@ public class BolaController : MonoBehaviour
     Rigidbody myRigidbody;
     Vector3 originalPosition;
     [SerializeField] float maxForce, minForce, maxTimer, speed, maxPosX, minPosX;
-    [HideInInspector] public float force = 20;
+    /*[HideInInspector]*/ public float force = 20;
     float timer = 0;
     int timesShot = 0, signoCambioFuerza = 1;
 
@@ -33,7 +33,7 @@ public class BolaController : MonoBehaviour
             case "faseRecogida":
                 if (GameManager.Instance.puedoRecoger)
                 {
-                    if (timesShot < 3)
+                    if (timesShot < 3 && GameManager.Instance.GetNumBolosCaidos() != 10)
                     {
                         resetBola();
                     }
@@ -63,7 +63,7 @@ public class BolaController : MonoBehaviour
             signoCambioFuerza = 1;
         }
 
-        force += Time.deltaTime * signoCambioFuerza;
+        force += Time.deltaTime * signoCambioFuerza * 200;
         force = Mathf.Clamp(force, minForce, maxForce);
     }
 

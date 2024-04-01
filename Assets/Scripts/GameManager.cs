@@ -44,6 +44,11 @@ public class GameManager : MonoBehaviour
         return numeroBolosCaidos;
     }
 
+    public void ResetCantidadBolos()
+    {
+        numeroBolosCaidos = 0;
+    }
+
     public string GetFaseJuego()
     {
         return faseJuego;
