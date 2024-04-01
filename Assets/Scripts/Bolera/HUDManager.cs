@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HUDManager : MonoBehaviour
 {
-    [SerializeField] GameObject forceBar, inputInfo;
+    [SerializeField] GameObject forceBar, canvasApuntar, camaraBolos;
     [SerializeField] BolaController miBola;
 
     void Update()
@@ -22,14 +22,16 @@ public class HUDManager : MonoBehaviour
         }
     }
 
+    //Toma el valor de la fuerza, le resta su mínimo y se divide entre el máximo menos el mínimo para poder recibir un valor equivalente entre 0 y 1
     void changeForceBar()
     {
-        forceBar.GetComponent<Slider>().value = (miBola.force - 20) / 80;
+        forceBar.GetComponent<Slider>().value = (miBola.force - GameManager.Instance.minForce) / (GameManager.Instance.maxForce - GameManager.Instance.minForce);
     }
 
+    //Muestra u oculta el hud de apuntado dependiendo de la booleana que reciba
     void HudApuntado(bool mostarme)
     {
-        forceBar.SetActive(mostarme);
-        inputInfo.SetActive(mostarme);
+        canvasApuntar.SetActive(mostarme);
+        camaraBolos.SetActive(mostarme);
     }
 }

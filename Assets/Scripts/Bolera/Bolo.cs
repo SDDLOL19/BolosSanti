@@ -7,26 +7,22 @@ public class Bolo : MonoBehaviour
     public int numeroBolo;
     public BolosManager miManager;
     bool golpeado = false;
-    float timer, maxTimer = 5;
+    float timer, maxTimer = 3;
 
     private void Update()
     {
         if (GameManager.Instance.GetFaseJuego() == "faseRecogida")
         {
-            Temporizador();
+            StartCoroutine("Destruccion");
         }
     }
 
     //Temporizador destrucción
-    void Temporizador()
+    IEnumerator Destruccion()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= maxTimer)
-        {
-            Destroy(this.gameObject);
-            timer = 0;
-        }
+        yield return new WaitForSeconds(maxTimer);
+        GameManager.Instance.puedoRecoger = true;
+        Destroy(this.gameObject);
     }
 
     public void crearBolo(int numero, BolosManager manager)

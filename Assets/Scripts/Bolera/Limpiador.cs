@@ -5,21 +5,28 @@ using UnityEngine;
 public class Limpiador : MonoBehaviour
 {
     Animator myAnimator;
-    Joint myJoint;
     public bool doneOnce = false;
+    int cantidadBolosCaidosRondaAnterior;
 
     void Start()
     {
         myAnimator = GetComponent<Animator>();
-        myJoint = GetComponent<Joint>();
+        cantidadBolosCaidosRondaAnterior = 0;
     }
 
     void Update()
     {
+        //Si todavía no se ha realizado y está en la faseRecogida comienza el proceso para reestablecer los elementos
         if (!doneOnce && GameManager.Instance.GetFaseJuego() == "faseRecogida")
         {
             doneOnce = true;
-            myAnimator.Play("Clean");
+            
+            //Si la cantidad de bolos cambia, activa el limpiador y se ajusta la cantidad de bolos caidos de la ronda anterior
+            if (cantidadBolosCaidosRondaAnterior != GameManager.Instance.GetNumBolosCaidos())
+            {
+                cantidadBolosCaidosRondaAnterior = GameManager.Instance.GetNumBolosCaidos();
+                myAnimator.Play("Clean");
+            }
         }
 
         //Resetea el doneOnce en la fase de tiro para que no se repita el clip "clean"

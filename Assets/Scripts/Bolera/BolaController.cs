@@ -6,7 +6,7 @@ public class BolaController : MonoBehaviour
 {
     Rigidbody myRigidbody;
     Vector3 originalPosition;
-    [SerializeField] float maxForce, minForce, maxTimer, speed, maxPosX, minPosX;
+    [SerializeField] float maxTimer, speed, maxPosX, minPosX;
     /*[HideInInspector]*/ public float force = 20;
     float timer = 0;
     int timesShot = 0, signoCambioFuerza = 1;
@@ -53,18 +53,18 @@ public class BolaController : MonoBehaviour
     //Calcula la fuerza enter dos medidas mientras no se haya disparado la bola. Si llega al máximo baja, si llega al mínimo sube
     void ChangeForce()
     {
-        if (force >= maxForce)
+        if (force >= GameManager.Instance.maxForce)
         {
             signoCambioFuerza = -1;
         }
 
-        else if (force <= minForce)
+        else if (force <= GameManager.Instance.minForce)
         {
             signoCambioFuerza = 1;
         }
 
-        force += Time.deltaTime * signoCambioFuerza * 200;
-        force = Mathf.Clamp(force, minForce, maxForce);
+        force += Time.deltaTime * signoCambioFuerza * 30;
+        force = Mathf.Clamp(force, GameManager.Instance.minForce, GameManager.Instance.maxForce);
     }
 
     //Vuelve la bola no kinematic para impulsar la bola y cambia la fase de juego a la fase de tiro
@@ -101,7 +101,7 @@ public class BolaController : MonoBehaviour
         }
     }
 
-    //cambia la fase a la fase de apuntado
+    //Cambia la fase a la fase de apuntado
     //Luego vuelve la bola kinematic para detener los efectos de la física, la posiciona y la rota a como estaba en origen
     void resetBola()
     {

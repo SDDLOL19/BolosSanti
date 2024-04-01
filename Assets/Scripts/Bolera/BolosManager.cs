@@ -32,11 +32,6 @@ public class BolosManager : MonoBehaviour
                 GameObject clonBolo = Instantiate(boloPrefab, posicionBolo[i].position, Quaternion.identity);
                 clonBolo.GetComponent<Bolo>().crearBolo(i, this);
             }
-
-            //if (i == posicionBolo.Length - 1)
-            //{
-                
-            //}
         }
     }
 

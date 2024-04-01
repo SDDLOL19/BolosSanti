@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     string faseJuego;
     static int numeroBolosCaidos = 0;
     public bool puedoRecoger;
+    public float maxForce, minForce;
 
     void Awake()
     {
