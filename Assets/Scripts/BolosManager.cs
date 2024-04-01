@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BolosController : MonoBehaviour
+public class BolosManager : MonoBehaviour
 {
     public Transform[] posicionBolo;
     [SerializeField] GameObject boloPrefab;
@@ -10,11 +10,6 @@ public class BolosController : MonoBehaviour
     void Start()
     {
         ResetBolos();
-    }
-
-    void Update()
-    {
-        
     }
 
     void ResetBolos()
