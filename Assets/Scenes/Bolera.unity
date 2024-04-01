@@ -1134,6 +1134,7 @@ MonoBehaviour:
   - {fileID: 4379161007503015292}
   - {fileID: 1735238820009987189}
   boloPrefab: {fileID: 1957034045928122045, guid: 1ab3f485df5fe05438e610842a6e7bf7, type: 3}
+  bolosVivos: 01010101010101010101
 --- !u!1 &1561871974
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,14 +2212,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 289841565108850566, guid: 135a18b453022754ab4eebf0bf298182, type: 3}
-      propertyPath: maxForce
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 289841565108850566, guid: 135a18b453022754ab4eebf0bf298182, type: 3}
-      propertyPath: minForce
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 8170046899275494456, guid: 135a18b453022754ab4eebf0bf298182, type: 3}
       propertyPath: m_Name
       value: Bola

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 867120250294550084}
   - component: {fileID: 5398104517688185171}
   - component: {fileID: 3469287838176186492}
+  - component: {fileID: 982097143957664986}
   m_Layer: 0
   m_Name: Bolo
   m_TagString: Untagged
@@ -144,3 +145,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &982097143957664986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957034045928122045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6f32f9706899744b444d5abfec4ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numeroBolo: 0
+  miManager: {fileID: 0}

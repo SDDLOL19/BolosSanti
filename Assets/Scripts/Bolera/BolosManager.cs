@@ -6,17 +6,42 @@ public class BolosManager : MonoBehaviour
 {
     public Transform[] posicionBolo;
     [SerializeField] GameObject boloPrefab;
-    
-    void Start()
+    public bool[] bolosVivos;
+    bool spawnOnce = false;
+
+    private void Update()
     {
-        ResetBolos();
+        if (GameManager.Instance.GetFaseJuego() == "faseApuntado" && !spawnOnce)
+        {
+            CrearBolos();
+            spawnOnce = true;
+        }
+
+        else if (GameManager.Instance.GetFaseJuego() == "faseRecogida")
+        {
+            spawnOnce = false;
+        }
     }
 
-    void ResetBolos()
+    void CrearBolos()
     {
         for (int i = 0; i < posicionBolo.Length; i++)
         {
-            Instantiate(boloPrefab, posicionBolo[i].position, Quaternion.identity);
+            if (bolosVivos[i] == true)
+            {
+                GameObject clonBolo = Instantiate(boloPrefab, posicionBolo[i].position, Quaternion.identity);
+                clonBolo.GetComponent<Bolo>().crearBolo(i, this);
+            }
+
+            //if (i == posicionBolo.Length - 1)
+            //{
+                
+            //}
         }
+    }
+
+    public void BoloTirado(int numero)
+    {
+        bolosVivos[numero] = false;
     }
 }

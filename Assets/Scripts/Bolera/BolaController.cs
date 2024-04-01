@@ -33,7 +33,7 @@ public class BolaController : MonoBehaviour
             case "faseRecogida":
                 if (GameManager.Instance.puedoRecoger)
                 {
-                    if (timesShot < 3 && GameManager.Instance.GetNumBolosCaidos() != 10)
+                    if (timesShot < 3 && GameManager.Instance.GetNumBolosCaidos() < 10)
                     {
                         resetBola();
                     }

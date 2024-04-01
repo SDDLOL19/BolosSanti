@@ -127,8 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6498b0f050552ff419a88440e02473a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20
-  maxTimer: 2
+  maxForce: 100
+  minForce: 20
+  maxTimer: 5
   speed: 2
   maxPosX: 0.412
   minPosX: -0.412
+  force: 20
