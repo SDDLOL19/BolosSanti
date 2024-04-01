@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
         get { return instance; }
     }
 
-    public enum GameState { faseApuntado, faseTiro, faseRecogida, fasePartidaAcabada }
+    public enum GameState { faseApuntado, faseTiro, faseRecogida, fasePartidaAcabada, faseMenu }
     string faseJuego;
     static int numeroBolosCaidos = 0;
     public bool puedoRecoger;
@@ -67,6 +67,10 @@ public class GameManager : MonoBehaviour
 
             case 3:
                 faseJuego = "faseFinal";
+                break;
+
+            case 4:
+                faseJuego = "faseMenu";
                 break;
 
             default:
