@@ -87,7 +87,7 @@ public class BolaController : MonoBehaviour
     {
         myRigidbody.isKinematic = true;
         transform.position = originalPosition;
-        transform.eulerAngles = Vector3.zero;
+        transform.eulerAngles = new Vector3(0, 180, 0); //Debido al modelo, para que los tres agujeros se vean de frente hay que rotarlo 180º
         GameManager.Instance.ChangeFaseJuego(0);
     }
 }
