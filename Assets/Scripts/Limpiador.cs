@@ -6,7 +6,7 @@ public class Limpiador : MonoBehaviour
 {
     Animator myAnimator;
     Joint myJoint;
-    bool doneOnce = false;
+    public bool doneOnce = false;
 
     void Start()
     {
@@ -14,21 +14,24 @@ public class Limpiador : MonoBehaviour
         myJoint = GetComponent<Joint>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         if (!doneOnce && GameManager.Instance.GetFaseJuego() == "faseRecogida")
         {
             doneOnce = true;
             myAnimator.Play("Clean");
         }
+
+        //Resetea el doneOnce en la fase de tiro para que no se repita el clip "clean"
+        else if (GameManager.Instance.GetFaseJuego() == "faseTiro")
+        {
+            doneOnce = false;
+        }
     }
 
-    //Esta función se ejecuta desde el clip de animación "Clean". Resetea el doneOnce y permite que la bola se resetee
+    //Esta función se ejecuta desde el clip de animación "Rest". Permite que la bola se resetee
     public void PuedeResetear()
     {
-        doneOnce = false;
         GameManager.Instance.puedoRecoger = true;
     }
 }

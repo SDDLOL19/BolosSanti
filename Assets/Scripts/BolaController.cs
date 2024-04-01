@@ -55,6 +55,7 @@ public class BolaController : MonoBehaviour
         myRigidbody.AddForce(-transform.forward * force, ForceMode.Impulse);
         timesShot++;
         GameManager.Instance.ChangeFaseJuego(1);
+        GameManager.Instance.puedoRecoger = false;
     }
 
     void MoverBola()
@@ -81,13 +82,13 @@ public class BolaController : MonoBehaviour
         }
     }
 
-    //Vuelve la bola kinematic para detener los efectos de la física, la posiciona y la rota a como estaba en origen
-    //Luego cambia la fase a la fase de apuntado
+    //cambia la fase a la fase de apuntado
+    //Luego vuelve la bola kinematic para detener los efectos de la física, la posiciona y la rota a como estaba en origen
     void resetBola()
     {
+        GameManager.Instance.ChangeFaseJuego(0);
         myRigidbody.isKinematic = true;
         transform.position = originalPosition;
         transform.eulerAngles = new Vector3(0, 180, 0); //Debido al modelo, para que los tres agujeros se vean de frente hay que rotarlo 180º
-        GameManager.Instance.ChangeFaseJuego(0);
     }
 }
