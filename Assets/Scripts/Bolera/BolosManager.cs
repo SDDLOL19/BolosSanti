@@ -30,7 +30,7 @@ public class BolosManager : MonoBehaviour
             if (bolosVivos[i] == true)
             {
                 GameObject clonBolo = Instantiate(boloPrefab, posicionBolo[i].position, Quaternion.identity);
-                clonBolo.GetComponent<Bolo>().crearBolo(i, this);
+                clonBolo.GetComponent<Bolo>().CrearBolo(i, this);
             }
         }
     }

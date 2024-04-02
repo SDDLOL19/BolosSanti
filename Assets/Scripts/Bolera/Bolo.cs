@@ -25,7 +25,7 @@ public class Bolo : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void crearBolo(int numero, BolosManager manager)
+    public void CrearBolo(int numero, BolosManager manager)
     {
         miManager = manager;
         numeroBolo = numero;
